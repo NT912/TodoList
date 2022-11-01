@@ -29,7 +29,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* Added this scroll view to enable scrolling when list gets longer than the page */}
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
@@ -38,16 +37,17 @@ export default function App() {
       >
         {/* Today's Tasks */}
         <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Today's tasks</Text>
+          <Text style={styles.sectionTitle}>Today's Tasks</Text>
+
           <View style={styles.items}>
-            {/* This is where the tasks will go! */}
+            {/* This is the task will go */}
             {taskItems.map((item, index) => {
               return (
                 <TouchableOpacity
                   key={index}
                   onPress={() => completeTask(index)}
                 >
-                  <Task text={item} />
+                  <Task text={item} />;
                 </TouchableOpacity>
               );
             })}
@@ -56,7 +56,6 @@ export default function App() {
       </ScrollView>
 
       {/* Write a task */}
-      {/* Uses a keyboard avoiding view which ensures the keyboard does not cover the items on screen */}
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={styles.writeTaskWrapper}
@@ -67,6 +66,7 @@ export default function App() {
           value={task}
           onChangeText={(text) => setTask(text)}
         />
+
         <TouchableOpacity onPress={() => handleAddTask()}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
@@ -90,9 +90,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
   },
-  items: {
-    marginTop: 30,
-  },
+  items: { marginTop: 30 },
   writeTaskWrapper: {
     position: "absolute",
     bottom: 60,
