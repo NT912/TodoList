@@ -1,3 +1,3 @@
 # TodoList
 
-## The project is running with React Native and Expo
+## The simple project is running with React Native and Expo
